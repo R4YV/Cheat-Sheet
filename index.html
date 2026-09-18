@@ -168,6 +168,7 @@
               spellcheck="false"
               autocomplete="off"
               autofocus
+              placeholder="Waiting for input..."
               aria-label="Terminal command"
             >
           </form>
@@ -181,18 +182,16 @@
             Command Output
           </p>
 
-          <p
-            id="output-empty"
-            class="output-empty"
-          >
-            Waiting for input...
-          </p>
-
           <div
-            id="output-history"
-            class="output-history"
-            aria-live="polite"
-          ></div>
+            id="output-scroll"
+            class="output-scroll"
+          >
+            <div
+              id="output-history"
+              class="output-history"
+              aria-live="polite"
+            ></div>
+          </div>
         </section>
       </section>
 
