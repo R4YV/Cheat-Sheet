@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="theme-color"
+    content="#0b1220"
+  >
+
+  <meta
+    name="description"
+    content="Network Enumeration with Nmap cheat sheet, transcribed from the three-page Hack The Box Academy PDF."
+  >
+
+  <title>Network Enumeration with Nmap | Cheat Sheet</title>
+
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="../dagger.svg"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/cheatsheet.css"
+  >
+</head>
+
+<body
+  id="top"
+  data-sheet-id="network-enumeration-nmap"
+  style="
+    --command-column-width: 36%;
+    --description-column-width: 64%;
+  "
+>
+
+  <a
+    class="skip-link"
+    href="#content"
+  >
+    Skip to commands
+  </a>
+
+  <!--
+    The library list is intentionally empty here.
+    assets/js/cheatsheet.js builds it from assets/js/cheatsheets.js.
+  -->
+  <aside
+    id="site-sidebar"
+    class="site-sidebar"
+    aria-label="Cheat sheet library"
+  >
+    <div class="sidebar-header">
+      <div>
+        <p class="library-kicker">
+          REFERENCE LIBRARY
+        </p>
+
+        <p class="library-name">
+          Cheat sheets
+        </p>
+      </div>
+
+      <button
+        id="sidebar-toggle"
+        class="sidebar-toggle"
+        type="button"
+        aria-controls="sidebar-panel"
+        aria-expanded="true"
+        hidden
+      >
+        Close
+      </button>
+    </div>
+
+    <div
+      id="sidebar-panel"
+      class="sidebar-panel"
+    >
+      <section
+        class="sidebar-section"
+        aria-labelledby="library-heading"
+      >
+        <div class="sidebar-section-heading">
+          <h2 id="library-heading">
+            Browse cheat sheets
+          </h2>
+
+          <span
+            id="library-count"
+            class="library-count"
+            role="status"
+            aria-live="polite"
+          >
+            Loading...
+          </span>
+        </div>
+
+        <form
+          id="library-search-form"
+          class="sidebar-search"
+          role="search"
+          aria-label="Cheat sheet library"
+          hidden
+        >
+          <label for="library-search">
+            Find a cheat sheet
+          </label>
+
+          <input
+            id="library-search"
+            type="search"
+            placeholder="Filter titles..."
+            autocomplete="off"
+            spellcheck="false"
+            aria-controls="cheatsheet-links"
+          >
+        </form>
+
+        <nav aria-label="Cheat sheets">
+          <ul
+            id="cheatsheet-links"
+            class="sheet-links"
+          ></ul>
+        </nav>
+
+        <p
+          id="library-empty"
+          class="library-empty"
+          hidden
+        >
+          No matching cheat sheets.
+        </p>
+      </section>
+    </div>
+  </aside>
+
+  <!--
+    The source-page links are also generated automatically
+    from the table's <tbody id="page-N"> sections.
+  -->
+  <aside
+    class="sheet-panel"
+    aria-labelledby="sheet-panel-heading"
+  >
+    <div class="sheet-panel-inner">
+      <h2 id="sheet-panel-heading">
+        On this sheet
+      </h2>
+
+      <p class="sidebar-caption">
+        Jump to a source PDF page.
+      </p>
+
+      <nav
+        id="sheet-page-nav"
+        class="sheet-page-nav"
+        aria-label="PDF pages in this cheat sheet"
+      ></nav>
+    </div>
+  </aside>
+
+  <div class="site-content">
+    <header class="hero">
+      <div class="container">
+        <p class="eyebrow">
+          HACK THE BOX ACADEMY / PDF REFERENCE
+        </p>
+
+        <h1>
+          Network Enumeration
+          <span>with Nmap</span>
+</h1>
+
+        <p class="subtitle">
+          Cheat sheet
+        </p>
+
+        <nav
+          id="sheet-pagination"
+          class="sheet-pagination"
+          aria-label="Previous and next cheat sheets"
+          hidden
+        ></nav>
+
+        <div
+          class="metadata"
+          aria-label="Document information"
+        >
+          <span
+            id="entry-total"
+            class="badge"
+          >
+            Loading entries...
+          </span>
+
+          <span
+            id="page-total"
+            class="badge"
+          >
+            Loading pages...
+          </span>
+
+          <span class="badge">
+            HTML transcription
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <main
+      id="content"
+      class="container"
+      tabindex="-1"
+    >
+      <p class="source-note">
+        Original PDF wording, Nmap option syntax, section order, and descriptions are retained.
+        Line wrapping from the PDF has been removed.
+      </p>
+
+      <form aria-label="Nmap options in this cheat sheet" class="toolbar" hidden="" id="search-form" role="search">
+<label for="search">
+          Find an Nmap option
+        </label>
+<div class="search-row">
+<input aria-controls="commands" aria-describedby="result-count" autocomplete="off" id="search" placeholder="Search Nmap options or descriptions..." spellcheck="false" type="search"/>
+<button class="button" id="clear" type="button">
+            Clear
+          </button>
+<button class="button" id="print" type="button">
+            Print all
+          </button>
+</div>
+<p aria-atomic="true" aria-live="polite" class="result-count" id="result-count" role="status">
+          Showing 37 of 37 entries
+        </p>
+</form>
+
+      <div class="table-shell">
+        <table id="commands" role="table">
+<caption class="sr-only">
+            Network Enumeration with Nmap cheat sheet:
+            Nmap options and descriptions in source PDF order.
+          </caption>
+<colgroup>
+<col class="command-column"/>
+<col class="description-column"/>
+</colgroup>
+<thead role="rowgroup">
+<tr role="row">
+<th id="command-heading" role="columnheader" scope="col">
+                Nmap Option
+              </th>
+<th id="description-heading" role="columnheader" scope="col">
+                Description
+              </th>
+</tr>
+</thead>
+<!-- =================================================
+               PDF PAGE 01
+               ================================================= -->
+<tbody id="page-1" role="rowgroup">
+<tr class="page-divider">
+<th colspan="2">
+<div class="page-heading">
+<span>PDF PAGE 01</span>
+<span class="page-count">11 entries</span>
+</div>
+</th>
+</tr>
+<tr class="section-divider">
+<th colspan="2">
+                Scanning Options
+              </th>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>10.10.10.0/24</code></pre>
+</div>
+</td>
+<td class="description">
+                Target network range.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-sn</code></pre>
+</div>
+</td>
+<td class="description">
+                Disables port scanning.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-Pn</code></pre>
+</div>
+</td>
+<td class="description">
+                Disables ICMP Echo Requests
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-n</code></pre>
+</div>
+</td>
+<td class="description">
+                Disables DNS Resolution.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-PE</code></pre>
+</div>
+</td>
+<td class="description">
+                Performs the ping scan by using ICMP Echo Requests against the target.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>--packet-trace</code></pre>
+</div>
+</td>
+<td class="description">
+                Shows all packets sent and received.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>--reason</code></pre>
+</div>
+</td>
+<td class="description">
+                Displays the reason for a specific result.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>--disable-arp-ping</code></pre>
+</div>
+</td>
+<td class="description">
+                Disables ARP Ping Requests.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>--top-ports=&lt;num&gt;</code></pre>
+</div>
+</td>
+<td class="description">
+                Scans the specified top ports that have been defined as most frequent.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-p-</code></pre>
+</div>
+</td>
+<td class="description">
+                Scan all ports.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-p22-110</code></pre>
+</div>
+</td>
+<td class="description">
+                Scan all ports between 22 and 110.
+              </td>
+</tr>
+</tbody>
+<!-- =================================================
+               PDF PAGE 02
+               ================================================= -->
+<tbody id="page-2" role="rowgroup">
+<tr class="page-divider">
+<th colspan="2">
+<div class="page-heading">
+<span>PDF PAGE 02</span>
+<span class="page-count">15 entries</span>
+</div>
+</th>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-p22,25</code></pre>
+</div>
+</td>
+<td class="description">
+                Scans only the specified ports 22 and 25.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-F</code></pre>
+</div>
+</td>
+<td class="description">
+                Scans top 100 ports.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-sS</code></pre>
+</div>
+</td>
+<td class="description">
+                Performs an TCP SYN-Scan.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-sA</code></pre>
+</div>
+</td>
+<td class="description">
+                Performs an TCP ACK-Scan.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-sU</code></pre>
+</div>
+</td>
+<td class="description">
+                Performs an UDP Scan.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-sV</code></pre>
+</div>
+</td>
+<td class="description">
+                Scans the discovered services for their versions.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-sC</code></pre>
+</div>
+</td>
+<td class="description">
+                Perform a Script Scan with scripts that are categorized as "default".
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>--script &lt;script&gt;</code></pre>
+</div>
+</td>
+<td class="description">
+                Performs a Script Scan by using the specified scripts.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-O</code></pre>
+</div>
+</td>
+<td class="description">
+                Performs an OS Detection Scan to determine the OS of the target.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-A</code></pre>
+</div>
+</td>
+<td class="description">
+                Performs OS Detection, Service Detection, and traceroute scans.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-D RND:5</code></pre>
+</div>
+</td>
+<td class="description">
+                Sets the number of random Decoys that will be used to scan the target.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-e</code></pre>
+</div>
+</td>
+<td class="description">
+                Specifies the network interface that is used for the scan.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-S 10.10.10.200</code></pre>
+</div>
+</td>
+<td class="description">
+                Specifies the source IP address for the scan.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-g</code></pre>
+</div>
+</td>
+<td class="description">
+                Specifies the source port for the scan.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>--dns-server &lt;ns&gt;</code></pre>
+</div>
+</td>
+<td class="description">
+                DNS resolution is performed by using a specified name server.
+              </td>
+</tr>
+</tbody>
+<!-- =================================================
+               PDF PAGE 03
+               ================================================= -->
+<tbody id="page-3" role="rowgroup">
+<tr class="page-divider">
+<th colspan="2">
+<div class="page-heading">
+<span>PDF PAGE 03</span>
+<span class="page-count">11 entries</span>
+</div>
+</th>
+</tr>
+<tr class="section-divider">
+<th colspan="2">
+                Output Options
+              </th>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-oA filename</code></pre>
+</div>
+</td>
+<td class="description">
+                Stores the results in all available formats starting with the name of "filename".
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-oN filename</code></pre>
+</div>
+</td>
+<td class="description">
+                Stores the results in normal format with the name "filename".
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-oG filename</code></pre>
+</div>
+</td>
+<td class="description">
+                Stores the results in "grepable" format with the name of "filename".
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-oX filename</code></pre>
+</div>
+</td>
+<td class="description">
+                Stores the results in XML format with the name of "filename".
+              </td>
+</tr>
+<tr class="section-divider">
+<th colspan="2">
+                Performance Options
+              </th>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>--max-retries &lt;num&gt;</code></pre>
+</div>
+</td>
+<td class="description">
+                Sets the number of retries for scans of specific ports.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>--stats-every=5s</code></pre>
+</div>
+</td>
+<td class="description">
+                Displays scan's status every 5 seconds.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-v/-vv</code></pre>
+</div>
+</td>
+<td class="description">
+                Displays verbose output during the scan.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>--initial-rtt-timeout 50ms</code></pre>
+</div>
+</td>
+<td class="description">
+                Sets the specified time value as initial RTT timeout.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>--max-rtt-timeout 100ms</code></pre>
+</div>
+</td>
+<td class="description">
+                Sets the specified time value as maximum RTT timeout.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>--min-rate 300</code></pre>
+</div>
+</td>
+<td class="description">
+                Sets the number of packets that will be sent simultaneously.
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>-T &lt;0-5&gt;</code></pre>
+</div>
+</td>
+<td class="description">
+                Specifies the specific timing template.
+              </td>
+</tr>
+</tbody>
+</table>
+
+        <p
+          id="no-results"
+          class="empty-state"
+          hidden
+        >
+          No matching entries.
+          Try a different search or clear the filter.
+        </p>
+      </div>
+    </main>
+
+    <footer class="container">
+<p>
+        Source: Hack The Box Academy,
+        <cite>
+          Network Enumeration with Nmap Cheat Sheet
+        </cite>,
+        pages 1–3.
+
+        <br/>
+
+        Source file:
+        Network Enumeration with Nmap - cheatsheet.pdf
+      </p>
+<a href="#top">
+        Back to top ↑
+      </a>
+</footer>
+  </div>
+
+  <div
+    id="copy-status"
+    class="toast"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  ></div>
+
+  <script src="../assets/js/cheatsheets.js"></script>
+  <script src="../assets/js/cheatsheet.js"></script>
+</body>
+</html>
