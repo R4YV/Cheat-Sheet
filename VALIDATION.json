@@ -1,0 +1,30 @@
+[
+  {
+    "page": "ShellsAndPayloads",
+    "entries": 31,
+    "pages": 6,
+    "matches_original_entries": true,
+    "matches_original_pages": true
+  },
+  {
+    "page": "PasswordAttacks",
+    "entries": 75,
+    "pages": 11,
+    "matches_original_entries": true,
+    "matches_original_pages": true
+  },
+  {
+    "page": "NetworkEnumNmap",
+    "entries": 37,
+    "pages": 3,
+    "matches_original_entries": true,
+    "matches_original_pages": true
+  },
+  {
+    "page": "MetasploitFramework",
+    "entries": 75,
+    "pages": 6,
+    "matches_original_entries": true,
+    "matches_original_pages": true
+  }
+]
