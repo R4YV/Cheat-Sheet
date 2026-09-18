@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="theme-color"
+    content="#0b1220"
+  >
+
+  <meta
+    name="description"
+    content="REPLACE WITH PAGE DESCRIPTION"
+  >
+
+  <title>REPLACE TITLE | Cheat Sheet</title>
+
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="../dagger.svg"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/cheatsheet.css"
+  >
+</head>
+
+<body
+  id="top"
+  data-sheet-id="REPLACE-WITH-MANIFEST-ID"
+  style="
+    --command-column-width: 45%;
+    --description-column-width: 55%;
+  "
+>
+
+  <a class="skip-link" href="#content">
+    Skip to commands
+  </a>
+
+  <aside
+    id="site-sidebar"
+    class="site-sidebar"
+    aria-label="Cheat sheet library"
+  >
+    <div class="sidebar-header">
+      <div>
+        <p class="library-kicker">
+          REFERENCE LIBRARY
+        </p>
+
+        <p class="library-name">
+          Cheat sheets
+        </p>
+      </div>
+
+      <button
+        id="sidebar-toggle"
+        class="sidebar-toggle"
+        type="button"
+        aria-controls="sidebar-panel"
+        aria-expanded="true"
+        hidden
+      >
+        Close
+      </button>
+    </div>
+
+    <div id="sidebar-panel" class="sidebar-panel">
+      <section
+        class="sidebar-section"
+        aria-labelledby="library-heading"
+      >
+        <div class="sidebar-section-heading">
+          <h2 id="library-heading">
+            Browse cheat sheets
+          </h2>
+
+          <span
+            id="library-count"
+            class="library-count"
+            role="status"
+            aria-live="polite"
+          >
+            Loading...
+          </span>
+        </div>
+
+        <form
+          id="library-search-form"
+          class="sidebar-search"
+          role="search"
+          aria-label="Cheat sheet library"
+          hidden
+        >
+          <label for="library-search">
+            Find a cheat sheet
+          </label>
+
+          <input
+            id="library-search"
+            type="search"
+            placeholder="Filter titles..."
+            autocomplete="off"
+            spellcheck="false"
+            aria-controls="cheatsheet-links"
+          >
+        </form>
+
+        <nav aria-label="Cheat sheets">
+          <ul
+            id="cheatsheet-links"
+            class="sheet-links"
+          ></ul>
+        </nav>
+
+        <p
+          id="library-empty"
+          class="library-empty"
+          hidden
+        >
+          No matching cheat sheets.
+        </p>
+      </section>
+    </div>
+  </aside>
+
+  <aside
+    class="sheet-panel"
+    aria-labelledby="sheet-panel-heading"
+  >
+    <div class="sheet-panel-inner">
+      <h2 id="sheet-panel-heading">
+        On this sheet
+      </h2>
+
+      <p class="sidebar-caption">
+        Jump to a source PDF page.
+      </p>
+
+      <nav
+        id="sheet-page-nav"
+        class="sheet-page-nav"
+        aria-label="PDF pages in this cheat sheet"
+      ></nav>
+    </div>
+  </aside>
+
+  <div class="site-content">
+    <header class="hero">
+      <div class="container">
+        <p class="eyebrow">
+          HACK THE BOX ACADEMY / PDF REFERENCE
+        </p>
+
+        <h1>
+          REPLACE
+          <span>TITLE</span>
+        </h1>
+
+        <p class="subtitle">
+          Cheat sheet
+        </p>
+
+        <nav
+          id="sheet-pagination"
+          class="sheet-pagination"
+          aria-label="Previous and next cheat sheets"
+          hidden
+        ></nav>
+
+        <div
+          class="metadata"
+          aria-label="Document information"
+        >
+          <span id="entry-total" class="badge">
+            Loading entries...
+          </span>
+
+          <span id="page-total" class="badge">
+            Loading pages...
+          </span>
+
+          <span class="badge">
+            HTML transcription
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <main
+      id="content"
+      class="container"
+      tabindex="-1"
+    >
+      <p class="source-note">
+        REPLACE WITH SOURCE NOTE.
+      </p>
+
+      <form
+        id="search-form"
+        class="toolbar"
+        role="search"
+        aria-label="Commands in this cheat sheet"
+        hidden
+      >
+        <label for="search">
+          Find a command
+        </label>
+
+        <div class="search-row">
+          <input
+            id="search"
+            type="search"
+            placeholder="Search commands or descriptions..."
+            autocomplete="off"
+            spellcheck="false"
+            aria-controls="commands"
+            aria-describedby="result-count"
+          >
+
+          <button
+            id="clear"
+            class="button"
+            type="button"
+          >
+            Clear
+          </button>
+
+          <button
+            id="print"
+            class="button"
+            type="button"
+          >
+            Print all
+          </button>
+        </div>
+
+        <p
+          id="result-count"
+          class="result-count"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          Loading entries...
+        </p>
+      </form>
+
+      <div class="table-shell">
+        <table id="commands" role="table">
+          <caption class="sr-only">
+            REPLACE TABLE CAPTION
+          </caption>
+
+          <colgroup>
+            <col class="command-column">
+            <col class="description-column">
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th id="command-heading">Command</th>
+              <th id="description-heading">Description</th>
+            </tr>
+          </thead>
+
+          <tbody id="page-1">
+            <tr class="page-divider">
+              <th colspan="2">
+                <div class="page-heading">
+                  <span>PDF PAGE 01</span>
+                  <span class="page-count">1 entry</span>
+                </div>
+              </th>
+            </tr>
+
+            <tr class="entry">
+              <td>
+                <div class="command">
+                  <pre><code>example command</code></pre>
+                </div>
+              </td>
+
+              <td class="description">
+                Replace with description.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p
+          id="no-results"
+          class="empty-state"
+          hidden
+        >
+          No matching entries.
+          Try a different search or clear the filter.
+        </p>
+      </div>
+    </main>
+
+    <footer class="container">
+      <p>
+        REPLACE SOURCE INFORMATION
+      </p>
+
+      <a href="#top">
+        Back to top &uarr;
+      </a>
+    </footer>
+  </div>
+
+  <div
+    id="copy-status"
+    class="toast"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  ></div>
+
+  <script src="../assets/js/cheatsheets.js"></script>
+  <script src="../assets/js/cheatsheet.js"></script>
+</body>
+</html>
