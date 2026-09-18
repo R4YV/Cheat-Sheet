@@ -85,3 +85,11 @@ CLI commands:
 - `clear` clears command output
 
 The interactive panel is generated from the same `assets/js/cheatsheets.js` registry, so new pages are automatically included.
+
+## Landing-page viewport behavior
+
+The CLI landing page is locked to the browser viewport, so normal command output does not create a browser-level vertical scrollbar.
+
+- Only the Command Output history pane scrolls vertically when output exceeds its available height.
+- The CLI prompt/input remains fixed below the CPTS project text.
+- `Waiting for input...` is shown as the CLI input placeholder instead of inside the output pane.
