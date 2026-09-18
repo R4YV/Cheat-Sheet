@@ -13,8 +13,8 @@
   const outputHistory =
     document.getElementById("output-history");
 
-  const outputEmpty =
-    document.getElementById("output-empty");
+  const outputScroll =
+    document.getElementById("output-scroll");
 
   const optionList =
     document.getElementById("option-list");
@@ -31,7 +31,7 @@
     ||
     !outputHistory
     ||
-    !outputEmpty
+    !outputScroll
     ||
     !optionList
     ||
@@ -156,8 +156,6 @@
      --------------------------------------------------------- */
 
   function createOutputBlock(command) {
-    outputEmpty.hidden = true;
-
     const block =
       document.createElement("div");
 
@@ -197,15 +195,16 @@
 
     outputHistory.append(block);
 
+    window.requestAnimationFrame(() => {
+      outputScroll.scrollTop = outputScroll.scrollHeight;
+    });
+
     return response;
   }
 
   function clearOutput() {
     outputHistory.replaceChildren();
-
-    outputEmpty.hidden = false;
-    outputEmpty.textContent =
-      "Waiting for input...";
+    outputScroll.scrollTop = 0;
   }
 
   function showHelp(response) {
