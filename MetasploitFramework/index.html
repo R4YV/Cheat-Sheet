@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="theme-color"
+    content="#0b1220"
+  >
+
+  <meta
+    name="description"
+    content="Using the Metasploit Framework cheat sheet, transcribed from the six-page Hack The Box Academy PDF."
+  >
+
+  <title>Using the Metasploit Framework | Cheat Sheet</title>
+
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="../dagger.svg"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/cheatsheet.css"
+  >
+</head>
+
+<body
+  id="top"
+  data-sheet-id="using-metasploit-framework"
+  style="
+    --command-column-width: 40%;
+    --description-column-width: 60%;
+  "
+>
+
+  <a
+    class="skip-link"
+    href="#content"
+  >
+    Skip to commands
+  </a>
+
+  <!--
+    The library list is intentionally empty here.
+    assets/js/cheatsheet.js builds it from assets/js/cheatsheets.js.
+  -->
+  <aside
+    id="site-sidebar"
+    class="site-sidebar"
+    aria-label="Cheat sheet library"
+  >
+    <div class="sidebar-header">
+      <div>
+        <p class="library-kicker">
+          REFERENCE LIBRARY
+        </p>
+
+        <p class="library-name">
+          Cheat sheets
+        </p>
+      </div>
+
+      <button
+        id="sidebar-toggle"
+        class="sidebar-toggle"
+        type="button"
+        aria-controls="sidebar-panel"
+        aria-expanded="true"
+        hidden
+      >
+        Close
+      </button>
+    </div>
+
+    <div
+      id="sidebar-panel"
+      class="sidebar-panel"
+    >
+      <section
+        class="sidebar-section"
+        aria-labelledby="library-heading"
+      >
+        <div class="sidebar-section-heading">
+          <h2 id="library-heading">
+            Browse cheat sheets
+          </h2>
+
+          <span
+            id="library-count"
+            class="library-count"
+            role="status"
+            aria-live="polite"
+          >
+            Loading...
+          </span>
+        </div>
+
+        <form
+          id="library-search-form"
+          class="sidebar-search"
+          role="search"
+          aria-label="Cheat sheet library"
+          hidden
+        >
+          <label for="library-search">
+            Find a cheat sheet
+          </label>
+
+          <input
+            id="library-search"
+            type="search"
+            placeholder="Filter titles..."
+            autocomplete="off"
+            spellcheck="false"
+            aria-controls="cheatsheet-links"
+          >
+        </form>
+
+        <nav aria-label="Cheat sheets">
+          <ul
+            id="cheatsheet-links"
+            class="sheet-links"
+          ></ul>
+        </nav>
+
+        <p
+          id="library-empty"
+          class="library-empty"
+          hidden
+        >
+          No matching cheat sheets.
+        </p>
+      </section>
+    </div>
+  </aside>
+
+  <!--
+    The source-page links are also generated automatically
+    from the table's <tbody id="page-N"> sections.
+  -->
+  <aside
+    class="sheet-panel"
+    aria-labelledby="sheet-panel-heading"
+  >
+    <div class="sheet-panel-inner">
+      <h2 id="sheet-panel-heading">
+        On this sheet
+      </h2>
+
+      <p class="sidebar-caption">
+        Jump to a source PDF page.
+      </p>
+
+      <nav
+        id="sheet-page-nav"
+        class="sheet-page-nav"
+        aria-label="PDF pages in this cheat sheet"
+      ></nav>
+    </div>
+  </aside>
+
+  <div class="site-content">
+    <header class="hero">
+      <div class="container">
+        <p class="eyebrow">
+          HACK THE BOX ACADEMY / PDF REFERENCE
+        </p>
+
+        <h1>
+          Using the
+          <span>Metasploit Framework</span>
+</h1>
+
+        <p class="subtitle">
+          Cheat sheet
+        </p>
+
+        <nav
+          id="sheet-pagination"
+          class="sheet-pagination"
+          aria-label="Previous and next cheat sheets"
+          hidden
+        ></nav>
+
+        <div
+          class="metadata"
+          aria-label="Document information"
+        >
+          <span
+            id="entry-total"
+            class="badge"
+          >
+            Loading entries...
+          </span>
+
+          <span
+            id="page-total"
+            class="badge"
+          >
+            Loading pages...
+          </span>
+
+          <span class="badge">
+            HTML transcription
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <main
+      id="content"
+      class="container"
+      tabindex="-1"
+    >
+      <p class="source-note">
+        Original PDF wording, command syntax, section order, and descriptions are retained.
+        Line wrapping from the PDF has been removed.
+      </p>
+
+      <form aria-label="Metasploit commands in this cheat sheet" class="toolbar" hidden="" id="search-form" role="search">
+<label for="search">
+          Find a command
+        </label>
+<div class="search-row">
+<input aria-controls="commands" aria-describedby="result-count" autocomplete="off" id="search" placeholder="Search commands or descriptions..." spellcheck="false" type="search"/>
+<button class="button" id="clear" type="button">
+            Clear
+          </button>
+<button class="button" id="print" type="button">
+            Print all
+          </button>
+</div>
+<p aria-atomic="true" aria-live="polite" class="result-count" id="result-count" role="status">
+          Showing 75 of 75 entries
+        </p>
+</form>
+
+      <div class="table-shell">
+        <table id="commands" role="table">
+<caption class="sr-only">
+            Using the Metasploit Framework cheat sheet:
+            commands and descriptions in source PDF order.
+          </caption>
+<colgroup>
+<col class="command-column"/>
+<col class="description-column"/>
+</colgroup>
+<thead>
+<tr>
+<th id="command-heading">Command</th>
+<th id="description-heading">Description</th>
+</tr>
+</thead>
+<!-- PAGE 01 -->
+<tbody id="page-1">
+<tr class="page-divider">
+<th colspan="2">
+<div class="page-heading">
+<span>PDF PAGE 01</span>
+<span class="page-count">8 entries</span>
+</div>
+</th>
+</tr>
+<tr class="section-divider">
+<th colspan="2">
+                MSFconsole Commands
+              </th>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>show exploits</code></pre></div></td>
+<td class="description">Show all exploits within the Framework.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>show payloads</code></pre></div></td>
+<td class="description">Show all payloads within the Framework.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>show auxiliary</code></pre></div></td>
+<td class="description">Show all auxiliary modules within the Framework.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>search &lt;name&gt;</code></pre></div></td>
+<td class="description">Search for exploits or modules within the Framework.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>info</code></pre></div></td>
+<td class="description">Load information about a specific exploit or module.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>use &lt;name&gt;</code></pre></div></td>
+<td class="description">Load an exploit or module (example: use windows/smb/psexec).</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>use &lt;number&gt;</code></pre></div></td>
+<td class="description">Load an exploit by using the index number displayed after the search command.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>LHOST</code></pre></div></td>
+<td class="description">Your local host’s IP address reachable by the target, often the public IP address when not on a local network. Typically used for reverse shells.</td>
+</tr>
+</tbody>
+<!-- PAGE 02 -->
+<tbody id="page-2">
+<tr class="page-divider">
+<th colspan="2">
+<div class="page-heading">
+<span>PDF PAGE 02</span>
+<span class="page-count">15 entries</span>
+</div>
+</th>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>RHOST</code></pre></div></td>
+<td class="description">The remote host or the target. set function Set a specific value (for example, LHOST or RHOST).</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>setg &lt;function&gt;</code></pre></div></td>
+<td class="description">Set a specific value globally (for example, LHOST or RHOST).</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>show options</code></pre></div></td>
+<td class="description">Show the options available for a module or exploit.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>show targets</code></pre></div></td>
+<td class="description">Show the platforms supported by the exploit.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>set target &lt;number&gt;</code></pre></div></td>
+<td class="description">Specify a specific target index if you know the OS and service pack.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>set payload &lt;payload&gt;</code></pre></div></td>
+<td class="description">Specify the payload to use.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>set payload &lt;number&gt;</code></pre></div></td>
+<td class="description">Specify the payload index number to use after the show payloads command.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>show advanced</code></pre></div></td>
+<td class="description">Show advanced options.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>set autorunscript migrate -f</code></pre></div></td>
+<td class="description">Automatically migrate to a separate process upon exploit completion.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>check</code></pre></div></td>
+<td class="description">Determine whether a target is vulnerable to an attack.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>exploit</code></pre></div></td>
+<td class="description">Execute the module or exploit and attack the target.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>exploit -j</code></pre></div></td>
+<td class="description">Run the exploit under the context of the job. (This will run the exploit in the background.)</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>exploit -z</code></pre></div></td>
+<td class="description">Do not interact with the session after successful exploitation.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>exploit -e &lt;encoder&gt;</code></pre></div></td>
+<td class="description">Specify the payload encoder to use (example: exploit –e shikata_ga_nai).</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>exploit -h</code></pre></div></td>
+<td class="description">Display help for the exploit command.</td>
+</tr>
+</tbody>
+<!-- PAGE 03 -->
+<tbody id="page-3">
+<tr class="page-divider">
+<th colspan="2">
+<div class="page-heading">
+<span>PDF PAGE 03</span>
+<span class="page-count">12 entries</span>
+</div>
+</th>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>sessions -l</code></pre></div></td>
+<td class="description">List available sessions (used when handling multiple shells).</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>sessions -l -v</code></pre></div></td>
+<td class="description">List all available sessions and show verbose fields, such as which vulnerability was used when exploiting the system.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>sessions -s &lt;script&gt;</code></pre></div></td>
+<td class="description">Run a specific Meterpreter script on all Meterpreter live sessions.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>sessions -K</code></pre></div></td>
+<td class="description">Kill all live sessions.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>sessions -c &lt;cmd&gt;</code></pre></div></td>
+<td class="description">Execute a command on all live Meterpreter sessions.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>sessions -u &lt;sessionID&gt;</code></pre></div></td>
+<td class="description">Upgrade a normal Win32 shell to a Meterpreter console.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>db_create &lt;name&gt;</code></pre></div></td>
+<td class="description">Create a database to use with database-driven attacks (example: db_create autopwn).</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>db_connect &lt;name&gt;</code></pre></div></td>
+<td class="description">Create and connect to a database for driven attacks (example: db_connect autopwn).</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>db_nmap</code></pre></div></td>
+<td class="description">Use Nmap and place results in a database. (Normal Nmap syntax is supported, such as –sT –v –P0.)</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>db_destroy</code></pre></div></td>
+<td class="description">Delete the current database.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>db_destroy &lt;user:password@host:port/database&gt;</code></pre></div></td>
+<td class="description">Delete database using advanced options.</td>
+</tr>
+<tr class="section-divider">
+<th colspan="2">
+                Meterpreter Commands
+              </th>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>help</code></pre></div></td>
+<td class="description">Open Meterpreter usage help.</td>
+</tr>
+</tbody>
+<!-- PAGE 04 -->
+<tbody id="page-4">
+<tr class="page-divider">
+<th colspan="2">
+<div class="page-heading">
+<span>PDF PAGE 04</span>
+<span class="page-count">16 entries</span>
+</div>
+</th>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>run &lt;scriptname&gt;</code></pre></div></td>
+<td class="description">Run Meterpreter-based scripts; for a full list check the scripts/meterpreter directory.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>sysinfo</code></pre></div></td>
+<td class="description">Show the system information on the compromised target.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>ls</code></pre></div></td>
+<td class="description">List the files and folders on the target.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>use priv</code></pre></div></td>
+<td class="description">Load the privilege extension for extended Meterpreter libraries.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>ps</code></pre></div></td>
+<td class="description">Show all running processes and which accounts are associated with each process.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>migrate &lt;proc. id&gt;</code></pre></div></td>
+<td class="description">Migrate to the specific process ID (PID is the target process ID gained from the ps command).</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>use incognito</code></pre></div></td>
+<td class="description">Load incognito functions. (Used for token stealing and impersonation on a target machine.)</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>list_tokens -u</code></pre></div></td>
+<td class="description">List available tokens on the target by user.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>list_tokens -g</code></pre></div></td>
+<td class="description">List available tokens on the target by group.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>impersonate_token &lt;DOMAIN_NAMEUSERNAME&gt;</code></pre></div></td>
+<td class="description">Impersonate a token available on the target.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>steal_token &lt;proc. id&gt;</code></pre></div></td>
+<td class="description">Steal the tokens available for a given process and impersonate that token.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>drop_token</code></pre></div></td>
+<td class="description">Stop impersonating the current token.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>getsystem</code></pre></div></td>
+<td class="description">Attempt to elevate permissions to SYSTEM-level access through multiple attack vectors.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>shell</code></pre></div></td>
+<td class="description">Drop into an interactive shell with all available tokens.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>execute -f &lt;cmd.exe&gt; -i</code></pre></div></td>
+<td class="description">Execute cmd.exe and interact with it.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>execute -f &lt;cmd.exe&gt; -i -t</code></pre></div></td>
+<td class="description">Execute cmd.exe with all available tokens.</td>
+</tr>
+</tbody>
+<!-- PAGE 05 -->
+<tbody id="page-5">
+<tr class="page-divider">
+<th colspan="2">
+<div class="page-heading">
+<span>PDF PAGE 05</span>
+<span class="page-count">16 entries</span>
+</div>
+</th>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>execute -f &lt;cmd.exe&gt; -i -H -t</code></pre></div></td>
+<td class="description">Execute cmd.exe with all available tokens and make it a hidden process.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>rev2self</code></pre></div></td>
+<td class="description">Revert back to the original user you used to compromise the target.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>reg &lt;command&gt;</code></pre></div></td>
+<td class="description">Interact, create, delete, query, set, and much more in the target’s registry.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>setdesktop &lt;number&gt;</code></pre></div></td>
+<td class="description">Switch to a different screen based on who is logged in.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>screenshot</code></pre></div></td>
+<td class="description">Take a screenshot of the target’s screen.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>upload &lt;filename&gt;</code></pre></div></td>
+<td class="description">Upload a file to the target.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>download &lt;filename&gt;</code></pre></div></td>
+<td class="description">Download a file from the target.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>keyscan_start</code></pre></div></td>
+<td class="description">Start sniffing keystrokes on the remote target.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>keyscan_dump</code></pre></div></td>
+<td class="description">Dump the remote keys captured on the target.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>keyscan_stop</code></pre></div></td>
+<td class="description">Stop sniffing keystrokes on the remote target.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>getprivs</code></pre></div></td>
+<td class="description">Get as many privileges as possible on the target.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>uictl enable &lt;keyboard/mouse&gt;</code></pre></div></td>
+<td class="description">Take control of the keyboard and/or mouse.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>background</code></pre></div></td>
+<td class="description">Run your current Meterpreter shell in the background.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>hashdump</code></pre></div></td>
+<td class="description">Dump all hashes on the target. use sniffer Load the sniffer module.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>sniffer_interfaces</code></pre></div></td>
+<td class="description">List the available interfaces on the target.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>sniffer_dump &lt;interfaceID&gt; pcapname</code></pre></div></td>
+<td class="description">Start sniffing on the remote target.</td>
+</tr>
+</tbody>
+<!-- PAGE 06 -->
+<tbody id="page-6">
+<tr class="page-divider">
+<th colspan="2">
+<div class="page-heading">
+<span>PDF PAGE 06</span>
+<span class="page-count">8 entries</span>
+</div>
+</th>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>sniffer_start &lt;interfaceID&gt; packet-buffer</code></pre></div></td>
+<td class="description">Start sniffing with a specific range for a packet buffer.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>sniffer_stats &lt;interfaceID&gt;</code></pre></div></td>
+<td class="description">Grab statistical information from the interface you are sniffing.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>sniffer_stop &lt;interfaceID&gt;</code></pre></div></td>
+<td class="description">Stop the sniffer.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>add_user &lt;username&gt; &lt;password&gt; -h &lt;ip&gt;</code></pre></div></td>
+<td class="description">Add a user on the remote target.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>add_group_user &lt;"Domain Admins"&gt; &lt;username&gt; -h &lt;ip&gt;</code></pre></div></td>
+<td class="description">Add a username to the Domain Administrators group on the remote target.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>clearev</code></pre></div></td>
+<td class="description">Clear the event log on the target machine.</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>timestomp</code></pre></div></td>
+<td class="description">Change file attributes, such as creation date (antiforensics measure).</td>
+</tr>
+<tr class="entry">
+<td><div class="command"><pre><code>reboot</code></pre></div></td>
+<td class="description">Reboot the target machine.</td>
+</tr>
+</tbody>
+</table>
+
+        <p
+          id="no-results"
+          class="empty-state"
+          hidden
+        >
+          No matching entries.
+          Try a different search or clear the filter.
+        </p>
+      </div>
+    </main>
+
+    <footer class="container">
+<p>
+        Source: Hack The Box Academy,
+        <cite>Using the Metasploit Framework Cheat Sheet</cite>,
+        pages 1–6.
+
+        <br/>
+
+        Source file:
+        Using the Metasploit Framework - cheatsheet.pdf
+      </p>
+<a href="#top">
+        Back to top ↑
+      </a>
+</footer>
+  </div>
+
+  <div
+    id="copy-status"
+    class="toast"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  ></div>
+
+  <script src="../assets/js/cheatsheets.js"></script>
+  <script src="../assets/js/cheatsheet.js"></script>
+</body>
+</html>
