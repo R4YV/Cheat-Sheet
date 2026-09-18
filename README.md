@@ -71,3 +71,17 @@ Keep your existing `dagger.svg` in the repository root:
 `Cheat-Sheet/dagger.svg`
 
 The generated HTML pages reference that file.
+
+## Landing page interactive library
+
+The landing page no longer shows the reference-library panel by default.
+
+CLI commands:
+
+- `ls` lists `interactive.sh`
+- `./interactive.sh` slides the centralized cheat-sheet library in from the right
+- `exit` slides the library back out
+- `use <number>` still opens a cheat sheet
+- `clear` clears command output
+
+The interactive panel is generated from the same `assets/js/cheatsheets.js` registry, so new pages are automatically included.
