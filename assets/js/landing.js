@@ -19,6 +19,9 @@
   const optionList =
     document.getElementById("option-list");
 
+  const interactivePanel =
+    document.getElementById("interactive-panel");
+
   if (
     !config
     ||
@@ -31,6 +34,8 @@
     !outputEmpty
     ||
     !optionList
+    ||
+    !interactivePanel
   ) {
     console.error("Landing page initialization failed.");
     return;
@@ -54,7 +59,7 @@
   }
 
   /* ---------------------------------------------------------
-     RENDER THE RIGHT-SIDE OPTIONS FROM THE CENTRAL MANIFEST
+     CENTRALIZED INTERACTIVE LIBRARY
      --------------------------------------------------------- */
 
   optionList.replaceChildren();
@@ -106,6 +111,49 @@
       optionList.append(item);
     }
   );
+
+  function isInteractiveOpen() {
+    return document.body.classList.contains(
+      "interactive-open"
+    );
+  }
+
+  function openInteractivePanel() {
+    document.body.classList.add(
+      "interactive-open"
+    );
+
+    interactivePanel.removeAttribute(
+      "inert"
+    );
+
+    interactivePanel.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+  }
+
+  function closeInteractivePanel() {
+    document.body.classList.remove(
+      "interactive-open"
+    );
+
+    interactivePanel.setAttribute(
+      "inert",
+      ""
+    );
+
+    interactivePanel.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+    input.focus();
+  }
+
+  /* ---------------------------------------------------------
+     COMMAND OUTPUT
+     --------------------------------------------------------- */
 
   function createOutputBlock(command) {
     outputEmpty.hidden = true;
@@ -170,15 +218,12 @@
         .join("<br>");
 
     response.innerHTML =
-      `Available commands:
+      `Available commands:\n\n<span class="cmd">help</span>              Display this help message\n<span class="cmd">ls</span>                List files in the current directory\n<span class="cmd">clear</span>             Clear the command output\n<span class="cmd">./interactive.sh</span>  Open the interactive cheat-sheet library\n<span class="cmd">exit</span>              Close the interactive cheat-sheet library\n<span class="cmd">use &lt;number&gt;</span>      Open a cheat sheet\n\nAvailable cheat sheets:\n\n${available}`;
+  }
 
-<span class="cmd">help</span>         Display this help message
-<span class="cmd">clear</span>        Clear the command output
-<span class="cmd">use &lt;number&gt;</span>  Open a cheat sheet
-
-Available cheat sheets:
-
-${available}`;
+  function showDirectory(response) {
+    response.innerHTML =
+      `<span class="cmd">interactive.sh</span>`;
   }
 
   function navigateByNumber(
@@ -197,8 +242,7 @@ ${available}`;
       );
 
       response.innerHTML =
-        `Invalid selection: ${escapeHTML(number)}
-Type <span class="cmd">help</span> to view available options.`;
+        `Invalid selection: ${escapeHTML(number)}\nType <span class="cmd">help</span> to view available options.`;
 
       return;
     }
@@ -214,6 +258,10 @@ Type <span class="cmd">help</span> to view available options.`;
       250
     );
   }
+
+  /* ---------------------------------------------------------
+     COMMAND PROCESSOR
+     --------------------------------------------------------- */
 
   function processCommand(
     rawCommand
@@ -249,6 +297,48 @@ Type <span class="cmd">help</span> to view available options.`;
       return;
     }
 
+    if (
+      normalized
+      ===
+      "ls"
+    ) {
+      showDirectory(response);
+      return;
+    }
+
+    if (
+      normalized
+      ===
+      "./interactive.sh"
+    ) {
+      openInteractivePanel();
+
+      response.textContent =
+        isInteractiveOpen()
+          ? "Interactive cheat-sheet library opened."
+          : "Unable to open interactive mode.";
+
+      return;
+    }
+
+    if (
+      normalized
+      ===
+      "exit"
+    ) {
+      const wasOpen =
+        isInteractiveOpen();
+
+      closeInteractivePanel();
+
+      response.textContent =
+        wasOpen
+          ? "Interactive cheat-sheet library closed."
+          : "No interactive session is active.";
+
+      return;
+    }
+
     const useMatch =
       normalized.match(
         /^use\s+(\d+)$/
@@ -268,8 +358,7 @@ Type <span class="cmd">help</span> to view available options.`;
     );
 
     response.innerHTML =
-      `Unknown command: ${escapeHTML(command)}
-Type <span class="cmd">help</span> for available commands.`;
+      `Unknown command: ${escapeHTML(command)}\nType <span class="cmd">help</span> for available commands.`;
   }
 
   form.addEventListener(
@@ -308,6 +397,7 @@ Type <span class="cmd">help</span> for available commands.`;
   window.addEventListener(
     "load",
     () => {
+      closeInteractivePanel();
       input.focus();
     }
   );
