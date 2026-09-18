@@ -518,3 +518,48 @@ body.interactive-open .terminal-side {
     transition: none;
   }
 }
+
+/* =========================================================
+   LOCATE / WHICH SEARCH RESULTS
+   ========================================================= */
+
+.search-response {
+  color: var(--text);
+}
+
+.search-loading,
+.search-empty,
+.search-truncated {
+  color: var(--muted);
+}
+
+.search-empty,
+.search-truncated {
+  margin: 0;
+}
+
+.search-result {
+  margin: 0;
+}
+
+.search-result-command {
+  margin: 0;
+  color: var(--text);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font: inherit;
+}
+
+.search-result-description {
+  margin: .15rem 0 0;
+  color: var(--muted);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.search-truncated {
+  margin-top: 1rem;
+  padding-top: .75rem;
+  border-top: 1px solid var(--border);
+  font-size: .82rem;
+}
